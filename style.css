@@ -52,6 +52,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
     padding-bottom: 30px;
     box-sizing: border-box;
 }
@@ -62,10 +63,10 @@ body {
     border: none;
     outline: none;
     margin-top: 10px;
+    width: 90%;
     color: var(--input-color);
     font-family: monospace;
     font-weight: bold;
-    padding-right: 5%;
 }
 
 .result-input-kecil {

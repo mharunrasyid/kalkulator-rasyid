@@ -26,14 +26,28 @@ operatorItem.forEach(m => {
 
         if (inputKecilOperator == null) {
             inputCalculatorKecil.value += inputOperatorValue;
+            if (inputCalculatorKecil.value.match('/100')) {
+                inputCalculatorKecil.value = eval(inputCalculatorKecil.value)
+            }
         } else {
-            if (inputCalculatorKecil.value.slice(-1).match(inputOperator)) {
+            if (inputCalculatorKecil.value.match('/100')) {
+                inputCalculatorKecil.value = eval(inputCalculatorKecil.value)
+                inputKecilOperator = null
+            } else if (inputCalculatorKecil.value.slice(-1).match(inputOperator)) {
                 let removeInputOperator = inputCalculatorKecil.value.split('').reverse().join('').substr(1, inputCalculatorKecil.value.length);
                 inputCalculatorKecil.value = removeInputOperator.split('').reverse().join('');
                 inputCalculatorKecil.value += inputOperatorValue;
+                if (inputCalculatorKecil.value.match('/100')) {
+                    inputCalculatorKecil.value = eval(inputCalculatorKecil.value)
+                    inputKecilOperator = null
+                } 
                 inputKecilOperator = null
             } else {
                 inputCalculatorKecil.value += inputOperatorValue;
+                if (inputCalculatorKecil.value.match('/100')) {
+                    inputCalculatorKecil.value = eval(inputCalculatorKecil.value)
+                    inputKecilOperator = null
+                } 
                 inputKecilOperator = null
             }
         }
@@ -74,6 +88,7 @@ resultItem.addEventListener('click', function () {
         inputCalculatorBesar.value = result;
     }
 })
+
 
 let btnLightTheme = document.querySelector('.light-theme');
 let btnDarkTheme = document.querySelector('.dark-theme');
