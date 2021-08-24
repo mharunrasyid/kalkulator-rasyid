@@ -149,9 +149,9 @@ body {
     position: absolute;
     top: 10px;
     left: 15px;
-    width: 80px;
+    width: 100px;
     border-radius: 10px;
-    height: 35px;
+    height: 45px;
     display: flex;
     justify-content: space-between;
     background: var(--sec-color);
@@ -165,8 +165,8 @@ body {
 }
 
 .btn-theme {
+    font-size: 25px;
     margin: auto;
-    font-size: 18px;
 }
 
 .btn-light-theme {
@@ -192,27 +192,27 @@ footer>a {
 
 .btn-copy {
     top: 10px;
-    left: 110px;
-    width: 35px;
+    left: 135px;
+    width: 45px;
     align-items: center;
     justify-content: center;
     color: var(--btn-copy-color);
     cursor: pointer;
     display: none;
-    font-size: 18px;
+    font-size: 25px;
 }
 
 .btn-riwayat {
     position: absolute;
     top: 10px;
     right: 2.5%;
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     background: var(--sec-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 17px;
+    font-size: 24px;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -250,12 +250,11 @@ footer>a {
 }
 
 .header-riwayat-txt {
-    font-size: 25px;
+    font-size: 35px;
     font-weight: bold;
     padding-bottom: 5px;
     border-bottom: 5px solid var(--riwayat-color);
 }
-
 
 .body-riwayat {
     background: var(--riwayat-color);
@@ -278,14 +277,14 @@ footer>a {
 .btn-trash,
 .close-riwayat {
     cursor: pointer;
-    padding: 8px 10px;
+    padding: 12px 14px;
     font-size: 17px;
     background: var(--riwayat-color);
     border-radius: 7px;
 }
 
 .close-riwayat {
-    padding: 7px 10px;
+    padding: 11px 14px;
 }
 
 .btn-trash:hover,
@@ -299,7 +298,7 @@ footer>a {
     padding: 10px;
     padding-right: 30px;
     font-family: monospace;
-    font-size: 25px;
+    font-size: 30px;
     text-align: right;
     border-radius: 5px;
     cursor: pointer;
