@@ -62,8 +62,10 @@ removeAllItem.addEventListener('click', function () {
 })
 
 removeOneItem.addEventListener('click', function () {
-    if (inputCalculatorKecil.value == '0') {
+    if (inputCalculatorKecil.value == '0' || inputCalculatorKecil.value == '0.') {
+        document.querySelector('.btn-copy').style.display = "none";
         inputCalculatorKecil.value = '0';
+        inputCalculatorBesar.value = '0';
     } else {
         let inputValue = inputCalculatorKecil.value;
         if (inputValue.length == 1) {
@@ -77,6 +79,7 @@ removeOneItem.addEventListener('click', function () {
     }
 })
 
+
 resultItem.addEventListener('click', function () {
     const inputOutput = inputCalculatorKecil.value;
     const inputOperator = /[+*\/-]/g;
@@ -87,13 +90,14 @@ resultItem.addEventListener('click', function () {
 
         inputCalculatorKecil.value = '0';
         inputCalculatorBesar.value = '0';
+        document.querySelector('.btn-copy').style.display = "none";
     } else {
         let result = eval(inputOutput);
         inputCalculatorBesar.value = result;
+        document.querySelector('.btn-copy').style.display = "flex";
     }
-
-    document.querySelector('.btn-copy').style.display = "flex";
 })
+
 
 let btnLightTheme = document.querySelector('.light-theme');
 let btnDarkTheme = document.querySelector('.dark-theme');
