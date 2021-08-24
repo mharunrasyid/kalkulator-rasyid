@@ -6,6 +6,7 @@ body {
     --sec-input-color: rgba(255, 255, 255, .6);
     --dark-moon-color: rgba(255, 255, 255, 0.8);
     --light-sun-color: rgba(255, 255, 255, 0.3);
+    --btn-copy-color: rgba(255, 255, 255, 0.8);
     --footer-color: rgba(255, 255, 255, .7);
 }
 
@@ -17,6 +18,7 @@ body[data-theme="light"] {
     --sec-input-color: rgba(0, 0, 0, .3);
     --dark-moon-color: #cfcfcf;
     --light-sun-color: #696b6e;
+    --btn-copy-color: #696b6e;
     --footer-color: #555454c4;
 }
 
@@ -30,7 +32,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     transition: all ease .3s;
     background: linear-gradient(var(--primary-color), var(--sec-color));
-    
+
 }
 
 .calculator {
@@ -135,7 +137,12 @@ body {
     color: #ED7878 !important;
 }
 
-.theme-container {
+.item-red-2 {
+    color: #26D7B8 !important;
+}
+
+.theme-container,
+.btn-copy {
     position: absolute;
     top: 10px;
     left: 15px;
@@ -174,8 +181,20 @@ footer {
     color: var(--footer-color);
 }
 
-footer > a {
+footer>a {
     color: var(--input-color);
     font-weight: bold;
     text-decoration: none;
+}
+
+.btn-copy {
+    top: 10px;
+    left: 110px;
+    width: 35px;
+    align-items: center;
+    justify-content: center;
+    color: var(--btn-copy-color);
+    cursor: pointer;
+    display: none;
+    font-size: 18px;
 }
