@@ -12,12 +12,19 @@ numberItem.forEach(m => {
         if (inputCalculatorKecil.value == '0') {
             inputCalculatorKecil.value = '';
         }
+
         inputCalculatorKecil.value += inputNumber;
         if (inputCalculatorKecil.value == '00' || inputCalculatorKecil.value == '000') {
             inputCalculatorKecil.value = '0';
         }
     })
 });
+
+function inputMatch100() {
+    inputCalculatorKecil.value = eval(inputCalculatorKecil.value);
+    inputCalculatorBesar.value = eval(inputCalculatorKecil.value);
+    document.querySelector('.btn-copy').style.display = "flex";
+}
 
 operatorItem.forEach(m => {
     let inputOperatorValue = m.dataset.value;
@@ -29,7 +36,8 @@ operatorItem.forEach(m => {
         if (inputKecilOperator == null) {
             inputCalculatorKecil.value += inputOperatorValue;
             if (inputCalculatorKecil.value.match('/100')) {
-                inputCalculatorKecil.value = eval(inputCalculatorKecil.value);
+                inputMatch100();
+                riwayatCode();
             }
         } else {
             if (inputCalculatorKecil.value.slice(-1).match(inputOperator)) {
@@ -37,16 +45,16 @@ operatorItem.forEach(m => {
                 inputCalculatorKecil.value = removeInputOperator.split('').reverse().join('');
                 inputCalculatorKecil.value += inputOperatorValue;
                 if (inputCalculatorKecil.value.match('/100')) {
-                    inputCalculatorKecil.value = eval(inputCalculatorKecil.value);
+                    inputMatch100();
+                    riwayatCode();
                     inputKecilOperator = null;
                 }
                 inputKecilOperator = null;
             } else {
                 inputCalculatorKecil.value += inputOperatorValue;
                 if (inputCalculatorKecil.value.match('/100')) {
-                    inputCalculatorKecil.value = eval(inputCalculatorKecil.value);
-                    inputCalculatorBesar.value = eval(inputCalculatorKecil.value);
-                    document.querySelector('.btn-copy').style.display = "flex";
+                    inputMatch100();
+                    riwayatCode();
                     inputKecilOperator = null;
                 }
                 inputKecilOperator = null;
@@ -79,6 +87,42 @@ removeOneItem.addEventListener('click', function () {
     }
 })
 
+function riwayatCode() {
+    let inputCalculatorKecilArr = [];
+    let inputCalculatorBesarArr = [];
+    inputCalculatorKecilArr.push(inputCalculatorKecil.value);
+    inputCalculatorBesarArr.push(inputCalculatorBesar.value);
+
+    let bodyRiwayat = document.querySelector('.body-riwayat');
+    let bodyRiwayatDiv = document.createElement('div');
+    let bodyRiwayatTxt = document.createTextNode(inputCalculatorKecilArr[inputCalculatorKecilArr.length - 1] + " = " + inputCalculatorBesarArr[inputCalculatorBesarArr.length - 1]);
+
+    if (bodyRiwayat.innerHTML == 'Belum Ada Riwayat') {
+        bodyRiwayat.innerHTML = '';
+    }
+
+    bodyRiwayatDiv.classList.add('riwayat-kalkulator')
+
+    bodyRiwayatDiv.appendChild(bodyRiwayatTxt);
+    bodyRiwayat.appendChild(bodyRiwayatDiv);
+
+    let riwayatKalkulator = document.querySelectorAll('.riwayat-kalkulator');
+
+    riwayatKalkulator.forEach(m => {
+        m.addEventListener('click', function () {
+            let riwayatKalkulatorSplit = m.innerHTML.split(' = ');
+            let riwayatContainer = document.querySelector('.riwayat-container');
+            let riwayatBox = document.querySelector('.riwayat-box');
+
+            inputCalculatorKecil.value = riwayatKalkulatorSplit[0];
+            inputCalculatorBesar.value = riwayatKalkulatorSplit[1];
+
+            riwayatContainer.style.opacity = '0';
+            riwayatContainer.style.visibility = 'hidden';
+            riwayatBox.style.right = '-300px';
+        })
+    })
+}
 
 resultItem.addEventListener('click', function () {
     const inputOutput = inputCalculatorKecil.value;
@@ -96,8 +140,9 @@ resultItem.addEventListener('click', function () {
         inputCalculatorBesar.value = result;
         document.querySelector('.btn-copy').style.display = "flex";
     }
-})
 
+    riwayatCode();
+})
 
 let btnLightTheme = document.querySelector('.light-theme');
 let btnDarkTheme = document.querySelector('.dark-theme');
@@ -119,4 +164,37 @@ document.querySelector('.btn-copy').addEventListener('click', function () {
         alert(`Hasil Perhitungan Berhasil Di Copy\nAngka Yang Di Copy = ${inputCalculatorBesar.value}`);
         document.querySelector('.btn-copy').innerHTML = `<div class="far fa-clipboard"></div>`;
     }, 500);
+})
+
+let riwayatContainer = document.querySelector('.riwayat-container');
+let riwayatBox = document.querySelector('.riwayat-box');
+
+document.querySelector('.btn-riwayat').addEventListener('click', function () {
+    riwayatContainer.style.opacity = '1';
+    riwayatContainer.style.visibility = 'visible';
+    riwayatBox.style.right = '0';
+})
+
+document.querySelector('.close-riwayat').addEventListener('click', function () {
+    riwayatContainer.style.opacity = '0';
+    riwayatContainer.style.visibility = 'hidden';
+    riwayatBox.style.right = '-300px';
+})
+
+document.querySelector('.btn-trash').addEventListener('click', function () {
+    let bodyRiwayat = document.querySelector('.body-riwayat');
+    if (bodyRiwayat.innerHTML == 'Belum Ada Riwayat') {
+        bodyRiwayat.innerHTML = 'Belum Ada Riwayat';
+    } else {
+        bodyRiwayat.innerHTML = '';
+        bodyRiwayat.innerHTML = 'Belum Ada Riwayat';
+    }
+})
+
+riwayatContainer.addEventListener('click', function (e) {
+    if(e.target.classList.value == 'riwayat-container') {
+        riwayatContainer.style.opacity = '0';
+        riwayatContainer.style.visibility = 'hidden';
+        riwayatBox.style.right = '-300px';
+    }
 })
