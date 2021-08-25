@@ -121,12 +121,16 @@ body {
     background: var(--other-color);
     border-radius: 5px;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     justify-content: center;
     align-items: center;
     display: flex;
     cursor: pointer;
+}
+
+.operator-item {
+    font-size: 32px;
 }
 
 .item:hover {
