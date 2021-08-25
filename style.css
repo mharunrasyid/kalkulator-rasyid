@@ -34,7 +34,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     transition: all ease .3s;
     position: relative;
-    background: linear-gradient(var(--primary-color), var(--sec-color));
+    background: var(--primary-color);
 
 }
 
@@ -43,21 +43,24 @@ body {
     width: 100%;
     max-width: 2000px;
     height: 100vh;
-    max-height: 800px;
-    min-height: 600px;
+    max-height: 650px;
+    min-height: 550px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: var(--primary-color);
     overflow: hidden;
     color: var(--input-color);
 }
 
 .result-container {
-    height: 35%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    padding-bottom: 30px;
+    padding-bottom: 35px;
     box-sizing: border-box;
 }
 
@@ -75,7 +78,7 @@ body {
 
 .result-input-kecil {
     height: 30px;
-    font-size: 25px;
+    font-size: 30px;
     color: var(--sec-input-color);
 }
 
@@ -85,10 +88,10 @@ body {
 }
 
 .body-calculator {
-    height: 65%;
+    height: 300px;
     background: var(--sec-color);
     border-radius: 20px 20px 0 0;
-    padding: 40px 0px;
+    padding: 30px 0px;
     display: flex;
     box-sizing: border-box;
 }
@@ -114,10 +117,10 @@ body {
 .item {
     width: 22%;
     min-width: 50px;
-    height: 50px;
+    height: 40px;
     background: var(--other-color);
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-size: 20px;
     font-weight: bold;
     justify-content: center;
@@ -146,7 +149,7 @@ body {
 .theme-container,
 .btn-copy {
     position: absolute;
-    top: 10px;
+    top: 15px;
     left: 15px;
     width: 100px;
     border-radius: 10px;
@@ -190,7 +193,6 @@ footer>a {
 }
 
 .btn-copy {
-    top: 10px;
     left: 135px;
     width: 45px;
     align-items: center;
@@ -203,7 +205,7 @@ footer>a {
 
 .btn-riwayat {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 2.5%;
     width: 45px;
     height: 45px;
@@ -231,7 +233,8 @@ footer>a {
 .riwayat-box {
     position: absolute;
     right: -300px;
-    width: 300px;
+    width: 20%;
+    min-width: 300px;
     height: 100vh;
     background: var(--sec-color);
     color: var(--input-color);
@@ -296,9 +299,11 @@ footer>a {
 
 .riwayat-kalkulator {
     padding: 10px;
-    padding-right: 30px;
     font-family: monospace;
     font-size: 40px;
+    width: 90%;
+    overflow-x: auto;
+    box-sizing: border-box;
     text-align: right;
     border-radius: 5px;
     cursor: pointer;
@@ -311,5 +316,9 @@ footer>a {
 @media screen and (max-width: 450px) {
     .riwayat-box {
         width: 100%;
+    }
+
+    .result-input {
+        width: 80%;
     }
 }
