@@ -6,6 +6,6 @@
 
 ## Preview
 <img src="https://user-images.githubusercontent.com/66456221/131069200-9202a81a-868c-4984-9059-d584d059a073.png">
-Design By **[Lucia Scott](https://dribbble.com/shots/14709020-Calculator)**
+Design By **[Covid-19 Tracker](https://covid-19-tracker-e4bda.web.app/)**
 <br>
 Dibuat oleh **[Rasyid](https://www.instagram.com/its.rasyid_/)** pada tahun 2021
