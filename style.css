@@ -320,6 +320,7 @@ footer>a {
 @media screen and (max-width: 450px) {
     .riwayat-box {
         width: 100%;
+        min-width: 100% !important;
     }
 
     .result-input {
