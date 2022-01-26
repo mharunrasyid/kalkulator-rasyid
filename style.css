@@ -65,7 +65,7 @@ body {
 }
 
 .result-input {
-    text-align: right;
+    text-align: right !important;
     background: transparent;
     border: none;
     outline: none;
